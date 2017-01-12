@@ -58,6 +58,6 @@ Command to add a `auto-increment-offset` parameter，set the self growth field 
 Other parameters are written in the optimised.cnf file ，Plus some optimized parameters of the mysqld, based on the 16G memory server. For reference only.
 
 
-The `mysql.sh` script is based on the exec environment that has already been run on the MySQL master slave, will be the script copy / directory, waiting for the container to run it manually after the implementation of.
+The `mysql.sh` script is based on the environment that has already been run on the MySQL master slave, will be the script copy / directory, waiting for the container to run it manually after the implementation of.
 
 Tt like this `docker exec -it master1_1 sh mysql.sh`,then you can test the MySQL dual master. good luck !
