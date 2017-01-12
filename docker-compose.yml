@@ -5,9 +5,9 @@ services:
         build: .
         restart: unless-stopped
         ports:
-            - 3309:3306
+            - 3306:3306
         environment:
-            - MYSQL_ROOT_PASSWORD=jiuyang1205
+            - MYSQL_ROOT_PASSWORD=My_Passw0rd
             - MYSQL_REPLICA_USER=replica
             - MYSQL_REPLICA_PASS=replica_Passw0rd
             - MYSQL_MASTER_PORT=3306
@@ -17,9 +17,9 @@ services:
         build: .
         restart: unless-stopped
         ports:
-            - 3310:3306
+            - 3307:3306
         environment:
-            - MYSQL_ROOT_PASSWORD=jiuyang1205
+            - MYSQL_ROOT_PASSWORD=My_Passw0rd
             - MYSQL_REPLICA_USER=replica
             - MYSQL_REPLICA_PASS=replica_Passw0rd
             - MYSQL_MASTER_SERVER=master1
