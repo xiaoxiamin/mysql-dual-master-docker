@@ -1,0 +1,41 @@
+[mysql]
+no-auto-rehash
+[mysqld]
+open_files_limit = 10240
+back_log = 600  
+max_connections = 3000  
+max_connect_errors = 6000  
+external-locking = FALSE  
+max_allowed_packet = 32M  
+thread_cache_size = 300  
+query_cache_size = 64M  
+query_cache_limit = 4M  
+query_cache_min_res_unit = 2k  
+transaction_isolation = READ-COMMITTED  
+tmp_table_size = 256M  
+max_heap_table_size = 256M
+expire_logs_days = 7  
+key_buffer_size = 2048M  
+read_buffer_size = 1M  
+read_rnd_buffer_size = 16M  
+bulk_insert_buffer_size = 64M  
+myisam_max_sort_file_size = 10G  
+myisam_recover_options  
+skip-name-resolve  
+lower_case_table_names = 1  
+#server-id = 1
+innodb_autoextend_increment=128M
+innodb_buffer_pool_size = 2048M  
+innodb_thread_concurrency = 8  
+innodb_flush_log_at_trx_commit = 2  
+innodb_lock_wait_timeout = 120  
+innodb_file_per_table = 0  
+default-time-zone = +8:00
+#log-slave-updates
+read-only=0
+relay_log=mysqld-relay-bin
+auto-increment-increment=10
+#auto-increment-offset=1
+[mysqldump]
+quick  
+sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES  

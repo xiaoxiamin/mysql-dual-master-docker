@@ -1,0 +1,27 @@
+version: '2'
+services:
+    master1:
+        image: mysql:5.7-dual-master
+        build: .
+        restart: unless-stopped
+        ports:
+            - 3309:3306
+        environment:
+            - MYSQL_ROOT_PASSWORD=jiuyang1205
+            - MYSQL_REPLICA_USER=replica
+            - MYSQL_REPLICA_PASS=replica_Passw0rd
+            - MYSQL_MASTER_PORT=3306
+        command: ["mysqld", "--log-bin=mysql-bin", "--server-id=1", "--auto-increment-offset=1"]
+    master2:
+        image: mysql:5.7-dual-master
+        build: .
+        restart: unless-stopped
+        ports:
+            - 3310:3306
+        environment:
+            - MYSQL_ROOT_PASSWORD=jiuyang1205
+            - MYSQL_REPLICA_USER=replica
+            - MYSQL_REPLICA_PASS=replica_Passw0rd
+            - MYSQL_MASTER_SERVER=master1
+            - MYSQL_MASTER_WAIT_TIME=10
+        command: ["mysqld", "--log-bin=mysql-bin", "--server-id=2", "--auto-increment-offset=2"] 
