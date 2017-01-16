@@ -25,3 +25,11 @@ services:
             - MYSQL_MASTER_SERVER=master1
             - MYSQL_MASTER_WAIT_TIME=10
         command: ["mysqld", "--log-bin=mysql-bin", "--server-id=2", "--auto-increment-offset=2"] 
+    haproxy:
+        image: haproxy:latest
+        volumes:
+            - ./haproxy-mysql.cfg:/usr/local/etc/haproxy/haproxy.cfg
+        ports:
+            - 3366:3306
+        depends_on:
+            - master2
